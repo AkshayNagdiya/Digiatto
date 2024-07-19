@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "author": "Akshay Nagdiya",
   "license": "ISC",
   "dependencies": {
+    "cloudinary": "^2.3.0",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
