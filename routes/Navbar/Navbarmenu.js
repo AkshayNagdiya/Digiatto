@@ -1,7 +1,7 @@
-// const express = require("express");
+const express = require("express");
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.post("/menu", upload.single("image"), handleNavbarLogoUpload);
+router.post("/menu", handleNavbarLogoUpload);
 
-// module.exports = router;
+module.exports = router;
