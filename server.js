@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // routes
+app.use("/navlogo", require("./routes/Navlogo"));
 app.use("/herosection", require("./routes/Herosectionroute"));
 app.use("/homeslider", require("./routes/Homeslider"));
 app.use("/whatwedo", require("./routes/Whatwedo"));
