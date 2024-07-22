@@ -25,6 +25,7 @@ app.use("/service", require("./routes/Services"));
 app.use("/portfolio", require("./routes/Portfolio"));
 app.use("/contactinfo", require("./routes/Contact"));
 app.use("/expertadvice", require("./routes/Expertconnect"));
+app.use("/hireme", require("./routes/Hireme"));
 
 const PORT = process.env.PORT || 8000;
 
