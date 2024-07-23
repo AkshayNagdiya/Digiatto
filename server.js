@@ -32,6 +32,8 @@ app.use("/awards", require("./routes/Award"));
 app.use("/footer", require("./routes/Footer"));
 app.use("/excellence", require("./routes/Excellenceyear"));
 app.use("/serviceslider", require("./routes/ServiceSlider"));
+app.use("/expertise", require("./routes/Expertise"));
+
 
 const PORT = process.env.PORT || 8000;
 
