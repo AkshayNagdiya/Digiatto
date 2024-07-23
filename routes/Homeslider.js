@@ -13,14 +13,14 @@ const cloudinary = require("../config/Cloudinary");
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "Nav-logo",
+    folder: "Slider",
     format: async (req, file) => "jpeg", // or any other format you prefer
     public_id: (req, file) => `${Date.now()}-${file.originalname}`,
   },
 });
 const upload = multer({ storage });
 
-router.post("/", upload.single("image"), registerProduct);
+router.post("/", upload.single("Productimage"), registerProduct);
 router.get("/", getAllProducts);
 router.get("/:id", getById);
 router.delete("/:id", deleteProduct);

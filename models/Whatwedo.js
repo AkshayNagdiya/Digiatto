@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+// Nested schema for items in arrays
+const ItemSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  logo: {
+    type: String,
+    required: true,
+  },
+});
+
 const WhatwedoSchema = new mongoose.Schema(
   {
     title: {
@@ -15,11 +27,35 @@ const WhatwedoSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: [true, "Please provide  descriptions"],
+      required: [true, "Please provide descriptions"],
     },
     image: {
       type: String,
       required: [true, "Please provide a logo URL"],
+    },
+    languages: {
+      type: [ItemSchema],
+      required: [true, "Please provide languages"],
+    },
+    database: {
+      type: [ItemSchema],
+      required: [true, "Please provide database"],
+    },
+    frameworks: {
+      type: [ItemSchema],
+      required: [true, "Please provide frameworks"],
+    },
+    sdk: {
+      type: [ItemSchema],
+      required: [true, "Please provide sdk"],
+    },
+    tools: {
+      type: [ItemSchema],
+      required: [true, "Please provide tools"],
+    },
+    category: {
+      type: String,
+      require: [true, "Please provide category"],
     },
   },
   {

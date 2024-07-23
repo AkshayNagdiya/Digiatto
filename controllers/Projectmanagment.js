@@ -1,7 +1,7 @@
 const ProjectManagment = require("../models/Projectmanagment");
 
 const registerProjectManagment = async (req, res) => {
-  const { title, subtitle, description } = req.body;
+  const { title, subtitle, description, category } = req.body;
   const image = req.file ? req.file.path : null;
 
   try {
@@ -11,6 +11,7 @@ const registerProjectManagment = async (req, res) => {
       subtitle,
       description,
       image,
+      category,
     });
 
     return res.status(201).json(projectManagment);
@@ -65,6 +66,7 @@ const updateProjectManagment = async (req, res) => {
         title,
         subtitle,
         description,
+        category,
         image,
       },
       { new: true } // Return the updated document

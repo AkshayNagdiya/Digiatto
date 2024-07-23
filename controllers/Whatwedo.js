@@ -1,16 +1,32 @@
 const Whatwedo = require("../models/Whatwedo");
 
 const registerWhatwedo = async (req, res) => {
-  const { title, subtitle, description } = req.body;
-  const image = req.file ? req.file.path : null;
+  const {
+    title,
+    subtitle,
+    description,
+    languages,
+    database,
+    framworks,
+    sdk,
+    tools,
+    image,
+    category,
+  } = req.body;
+  // const image = req.file ? req.file.path : null;
 
   try {
-    // Create a new ProjectManagment entry in the database
     const whatwedo = await Whatwedo.create({
       title,
       subtitle,
       description,
       image,
+      languages,
+      database,
+      framworks,
+      sdk,
+      tools,
+      category,
     });
 
     return res.status(201).json(whatwedo);
@@ -45,10 +61,20 @@ const getWhatwedotById = async (req, res) => {
 };
 
 const updateWhatwedo = async (req, res) => {
-  const { title, subtitle, description, image } = req.body;
+  const {
+    title,
+    subtitle,
+    description,
+    image,
+    languages,
+    database,
+    framworks,
+    sdk,
+    tools,
+    category,
+  } = req.body;
   const whatwedoId = req.params.id;
 
-  // Check if all required fields are provided
   if (!title || !subtitle || !description) {
     return res
       .status(400)
@@ -56,7 +82,6 @@ const updateWhatwedo = async (req, res) => {
   }
 
   try {
-    // Update the ProjectManagment entry
     const updatedwhatwedo = await Whatwedo.findByIdAndUpdate(
       whatwedoId,
       {
@@ -64,8 +89,14 @@ const updateWhatwedo = async (req, res) => {
         subtitle,
         description,
         image,
+        languages,
+        database,
+        framworks,
+        sdk,
+        tools,
+        category,
       },
-      { new: true } // Return the updated document
+      { new: true } 
     );
 
     if (!updatedwhatwedo) {

@@ -9,6 +9,7 @@ const ProjectManagmentSchema = new mongoose.Schema(
     subtitle: {
       type: String,
       required: [true, "Please provide a subtitle for the description"],
+      default: "",
     },
     description: {
       type: String,
@@ -16,6 +17,10 @@ const ProjectManagmentSchema = new mongoose.Schema(
     },
     image: {
       type: String,
+    },
+    category: {
+      type: String,
+      required: [true, "Please provide a title for the category"],
     },
   },
   {

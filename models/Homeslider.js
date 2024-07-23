@@ -13,3 +13,4 @@ const productSchema = new mongoose.Schema({
 
 const Homeslider = mongoose.model('Homeslider', productSchema);
 module.exports = Homeslider;
+ 
