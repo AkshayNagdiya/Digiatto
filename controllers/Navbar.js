@@ -45,9 +45,16 @@ const updateNavbar = async (req, res) => {
     if (!navbar) {
       return res.status(404).json({ message: "Navbar not found" });
     }
-    navbar.logo = logo;
-    navbar.menuitems = menuitems;
-    navbar.button = button;
+
+    if (logo) {
+      navbar.logo = logo;
+    }
+    if (menuitems) {
+      navbar.menuitems = menuitems;
+    }
+    if (button) {
+      navbar.button = button;
+    }
 
     const updatedNavbar = await navbar.save();
     res.status(200).json(updatedNavbar);
@@ -55,6 +62,7 @@ const updateNavbar = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+
 
 const deleteNavbar = async (req, res) => {
   const { id } = req.params;

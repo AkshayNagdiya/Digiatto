@@ -5,7 +5,6 @@ const ExpertiseSchema = mongoose.Schema(
     topic: {
       type: String,
       required: [true, "Please enter a title of expertise"],
-      maxlength: 20,
     },
     subtopic: {
       type: String,

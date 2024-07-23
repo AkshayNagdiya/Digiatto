@@ -26,6 +26,6 @@ router.get("/", getAllExpertise);
 router.post("/", upload.single("image"), createExpertise);
 router.get("/:id", getExpertiseById);
 router.delete("/:id", deleteExpertise);
-router.post("/create", upload.single("image"), updateExpertise);
+router.put("/:id", upload.single("image"), updateExpertise);
 
 module.exports = router;
