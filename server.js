@@ -28,6 +28,7 @@ app.use("/contactinfo", require("./routes/Contact"));
 app.use("/expertadvice", require("./routes/Expertconnect"));
 app.use("/hireme", require("./routes/Hireme"));
 app.use("/awards", require("./routes/Award"));
+app.use("/footer", require("./routes/Footer"));
 
 const PORT = process.env.PORT || 8000;
 
