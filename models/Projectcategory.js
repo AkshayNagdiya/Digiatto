@@ -8,6 +8,7 @@ const ProjectcategorySchema = new mongoose.Schema({
   subtitle: {
     type: String,
     required: [true, "Please provide a subtitle for the project category"],
+    defautl: "",
   },
   description: {
     type: String,
