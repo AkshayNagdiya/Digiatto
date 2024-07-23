@@ -2,12 +2,12 @@ const Award = require("../models/Award");
 
 // Controller to create a new award entry
 const createAward = async (req, res) => {
-  const { awardImage } = req.body;
+  const Awardimage = req.file ? req.file.path : null;
 
   try {
     // Create a new Award entry in the database
     const award = await Award.create({
-      awardImage,
+      Awardimage,
     });
 
     return res.status(201).json(award);
@@ -26,18 +26,6 @@ const getAllAwards = async (req, res) => {
   }
 };
 
-// Controller to get a single award entry by ID
-const getAwardById = async (req, res) => {
-  const awardId = req.params.id;
-
-  try {
-    const awards = await Award.findById(awardId);
-    res.json(awards);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
 const deleteAwardById = async (req, res) => {
   const awardId = req.params.id;
 
@@ -50,7 +38,7 @@ const deleteAwardById = async (req, res) => {
 };
 
 module.exports = {
+  createAward,
   getAllAwards,
-  getAwardById,
   deleteAwardById,
 };
