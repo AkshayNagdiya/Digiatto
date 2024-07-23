@@ -25,6 +25,7 @@ app.use("/projectcategory", require("./routes/Projectcategory"));
 app.use("/service", require("./routes/Services"));
 app.use("/portfolio", require("./routes/Portfolio"));
 app.use("/contactinfo", require("./routes/Contact"));
+app.use("/sociallinks", require("./routes/SocialLinks"));
 app.use("/expertadvice", require("./routes/Expertconnect"));
 app.use("/hireme", require("./routes/Hireme"));
 app.use("/awards", require("./routes/Award"));

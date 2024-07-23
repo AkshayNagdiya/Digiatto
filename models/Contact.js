@@ -33,13 +33,13 @@ const Contact = mongoose.model("Contact", ContactSchema);
 
 module.exports = Contact;
 
-const SocialLinksSchema = mongoose.Schema({
-  twitter: { type: String },
-  facebook: { type: String },
-  instagram: { type: String },
-  linkedin: { type: String },
-  whatsapp: { type: String },
-});
+// const SocialLinksSchema = mongoose.Schema({
+//   twitter: { type: String },
+//   facebook: { type: String },
+//   instagram: { type: String },
+//   linkedin: { type: String },
+//   whatsapp: { type: String },
+// });
 
-const socialLinks = mongoose.model("Sociallinks", SocialLinksSchema);
-module.exports = socialLinks;
+// const socialLinks = mongoose.model("Sociallinks", SocialLinksSchema);
+// module.exports = socialLinks;
