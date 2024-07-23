@@ -3,9 +3,14 @@ const HeroSection = require("../models/Homeherosection");
 // Create a new hero section
 const createHeroSection = async (req, res) => {
   try {
-    const { title, subtitle, description } = req.body;
+    const { title, subtitle, description, button } = req.body;
 
-    const newHeroSection = new HeroSection({ title, subtitle, description });
+    const newHeroSection = new HeroSection({
+      title,
+      subtitle,
+      description,
+      button,
+    });
     await newHeroSection.save();
 
     return res.status(201).json({
@@ -32,6 +37,8 @@ const getHeroSections = async (req, res) => {
 // Update a hero section by ID
 const updateHeroSection = async (req, res) => {
   const { id } = req.params;
+  const { title, subtitle, description, button } = req.body;
+
   try {
     const updatedSection = await HeroSection.findByIdAndUpdate(id, req.body, {
       new: true,

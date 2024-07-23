@@ -28,7 +28,9 @@ const createNavbar = async (req, res) => {
 
   try {
     const savedNavbar = await newNavbar.save();
-    res.status(201).json(savedNavbar);
+    res
+      .status(201)
+      .json({ message: "Navbar Created Successfully", savedNavbar });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
