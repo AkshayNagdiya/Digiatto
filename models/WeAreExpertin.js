@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const NavlogoSchema = mongoose.Schema({
+const Schema = mongoose.Schema({
   Title: {
     type: String,
     require: ["please write logo title"],
@@ -12,6 +12,6 @@ const NavlogoSchema = mongoose.Schema({
   },
 });
 
-const Navlogo = mongoose.model("Navlogo", NavlogoSchema);
+const Weareexpert = mongoose.model("Weareexpert", Schema);
 
-module.exports = Navlogo;
+module.exports = Weareexpert;
