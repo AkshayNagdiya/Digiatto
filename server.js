@@ -30,7 +30,7 @@ app.use("/hireme", require("./routes/Hireme"));
 app.use("/awards", require("./routes/Award"));
 app.use("/footer", require("./routes/Footer"));
 app.use("/excellence", require("./routes/Excellenceyear"));
-
+app.use("/serviceslider", require("./routes/ServiceSlider"));
 
 const PORT = process.env.PORT || 8000;
 
