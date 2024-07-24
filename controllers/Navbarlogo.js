@@ -23,19 +23,21 @@ const getnavbarlogo = async (req, res) => {
   }
 };
 
-const Updatenavbarlogo = async (req, res) => {
+const deletenavbarlogo = async (req, res) => {
   const logoId = req.params.id;
 
   try {
-    const UpdateNavbarlogo = await Navbarlogo.findByIdAndUpdate(logoId);
+    const deletenavbarlogo = await Navbarlogo.findByIdAndDelete(logoId);
 
-    if (!UpdateNavbarlogo) {
-      return res.status(404).json({ message: "Navbarlogo not found" });
+    if (!deletenavbarlogo) {
+      return res
+        .status(404)
+        .json({ message: "Navbarlogo not found for delete" });
     }
 
     res
       .status(200)
-      .json({ message: "Navbarlogo Update successfully", UpdateNavbarlogo });
+      .json({ message: "Navbarlogo deleted successfully", deletenavbarlogo });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -44,5 +46,5 @@ const Updatenavbarlogo = async (req, res) => {
 module.exports = {
   createNavbarlogo,
   getnavbarlogo,
-  Updatenavbarlogo,
+  deletenavbarlogo,
 };

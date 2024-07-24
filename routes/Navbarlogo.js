@@ -4,8 +4,8 @@ const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const cloudinary = require("../config/Cloudinary");
 const {
   createNavbarlogo,
-  Updatenavbarlogo,
   getnavbarlogo,
+  deletenavbarlogo,
 } = require("../controllers/Navbarlogo");
 
 const router = express.Router();
@@ -21,7 +21,7 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 router.post("/", upload.single("image"), createNavbarlogo);
-router.put("/:id", Updatenavbarlogo);
+router.delete("/:id", deletenavbarlogo);
 router.get("/", getnavbarlogo);
 
 module.exports = router;
