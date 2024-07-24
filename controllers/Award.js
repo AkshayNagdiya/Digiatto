@@ -30,8 +30,15 @@ const deleteAwardById = async (req, res) => {
   const awardId = req.params.id;
 
   try {
-    const awards = await Award.findByIdAndDelete(awardId);
-    res.json(awards);
+    const deletedAward = await Award.findByIdAndDelete(awardId);
+
+    if (!deletedAward) {
+      return res.status(404).json({ message: "Award not found" });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Award deleted successfully", deletedAward });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -21,7 +21,7 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 router.post("/", upload.single("Awardimage"), createAward);
-router.delete("/", deleteAwardById);
+router.delete("/:id", deleteAwardById);
 router.get("/", getAllAwards);
 
 module.exports = router;
