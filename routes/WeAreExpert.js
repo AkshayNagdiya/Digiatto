@@ -6,6 +6,7 @@ const {
   GetWeareexpert,
   UpdateWeareexpert,
   CreateWeareexpert,
+  DeleteWeareexpert,
 } = require("../controllers/WeAreExpertin");
 
 const router = express.Router();
@@ -22,6 +23,7 @@ const upload = multer({ storage });
 
 router.post("/", upload.single("image"), CreateWeareexpert);
 router.put("/:id", upload.single("image"), UpdateWeareexpert);
+router.put("/:id", DeleteWeareexpert);
 router.get("/", GetWeareexpert);
 
 module.exports = router;
