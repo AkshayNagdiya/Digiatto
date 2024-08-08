@@ -67,9 +67,27 @@ const DeleteWeareexpert = async (req, res) => {
   }
 };
 
+// Get a WeAreExpertin entry by ID
+const GetWeareexpertById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const weareexpert = await Weareexpert.findById(id);
+
+    if (!weareexpert) {
+      return res.status(404).json({ message: "WeAreExpertin not found" });
+    }
+
+    res.status(200).json(weareexpert);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   GetWeareexpert,
   CreateWeareexpert,
   UpdateWeareexpert,
   DeleteWeareexpert,
+  GetWeareexpertById
 };
