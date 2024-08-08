@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "Slider",
-    format: async (req, file) => "jpeg", // or any other format you prefer
+    format: async (req, file) => "png", // or any other format you prefer
     public_id: (req, file) => `${Date.now()}-${file.originalname}`,
   },
 });

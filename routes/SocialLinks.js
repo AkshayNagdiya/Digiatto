@@ -11,7 +11,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "sociallinkicon",
-    format: async (req, file) => "jpeg",
+    format: async (req, file) => "png",
     public_id: (req, file) => `${Date.now()}-${file.originalname}`,
   },
 });
