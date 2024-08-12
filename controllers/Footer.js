@@ -2,8 +2,8 @@ const SchemaName = require("../models/Footer");
 
 // Create a new SchemaName entry
 const createSchemaEntry = async (req, res) => {
-  const { logo, description, services, industry_solutions, newsletter } =
-    req.body;
+  const { description, services, industry_solutions } = req.body;
+  const logo = req.file ? req.file.path : null;
 
   try {
     const newEntry = await SchemaName.create({
@@ -11,7 +11,6 @@ const createSchemaEntry = async (req, res) => {
       description,
       services,
       industry_solutions,
-      newsletter,
     });
 
     res.status(201).json(newEntry);
@@ -50,8 +49,8 @@ const getSchemaEntryById = async (req, res) => {
 // Update a specific SchemaName entry by ID
 const updateSchemaEntry = async (req, res) => {
   const { id } = req.params;
-  const { logo, description, services, industry_solutions, newsletter } =
-    req.body;
+  const { description, services, industry_solutions } = req.body;
+  const logo = req.file ? req.file.path : null;
 
   try {
     const updatedEntry = await SchemaName.findByIdAndUpdate(
@@ -61,7 +60,6 @@ const updateSchemaEntry = async (req, res) => {
         description,
         services,
         industry_solutions,
-        newsletter,
       },
       { new: true }
     );
