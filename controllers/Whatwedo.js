@@ -10,10 +10,10 @@ const registerWhatwedo = async (req, res) => {
     framworks,
     sdk,
     tools,
-    // image,
+    image,
     category,
   } = req.body;
-  const image = req.file ? req.file.path : null;
+  // const image = req.file ? req.file.path : null;
 
   try {
     const whatwedo = await Whatwedo.create({
@@ -65,7 +65,7 @@ const updateWhatwedo = async (req, res) => {
     title,
     subtitle,
     description,
-    // image,
+    image,
     languages,
     database,
     framworks,
@@ -73,8 +73,6 @@ const updateWhatwedo = async (req, res) => {
     tools,
     category,
   } = req.body;
-  const image = req.file ? req.file.path : null;
-
   const whatwedoId = req.params.id;
 
   if (!title || !subtitle || !description) {
@@ -98,7 +96,7 @@ const updateWhatwedo = async (req, res) => {
         tools,
         category,
       },
-      { new: true }
+      { new: true } 
     );
 
     if (!updatedwhatwedo) {
