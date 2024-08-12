@@ -55,6 +55,21 @@ const getContact = async (req, res) => {
   }
 };
 
+const getContactById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const contact = await Contact.findById(id);
+
+    if (!contact) {
+      return res.status(404).json({ error: "Contact not found" });
+    }
+
+    res.status(200).json(contact);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
 const deleteContact = async (req, res) => {
   const { id } = req.params;
   try {
@@ -101,11 +116,27 @@ const UpdateLinks = async (req, res) => {
   }
 };
 
+const getSocialLinksById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const links = await socialLinks.findById(id);
+    if (!links) {
+      return res.status(404).json({ error: "Social links not found" });
+    }
+
+    res.status(200).json(links);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
 module.exports = {
   createContact,
   updateContact,
   getContact,
+  getContactById,
   deleteContact,
   CreateLinks,
   UpdateLinks,
+  getSocialLinksById,
 };
