@@ -22,16 +22,6 @@ const Schema = new mongoose.Schema({
     type: [TextSchema],
     required: true,
   },
-  newsletter: [
-    {
-      email: {
-        type: String,
-        required: true,
-        lowercase: true,
-        trim: true,
-      },
-    },
-  ],
 });
 
 module.exports = mongoose.model("SchemaName", Schema);

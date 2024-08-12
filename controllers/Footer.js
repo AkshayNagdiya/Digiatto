@@ -2,8 +2,8 @@ const SchemaName = require("../models/Footer");
 
 // Create a new SchemaName entry
 const createSchemaEntry = async (req, res) => {
-  const { description, services, industry_solutions } = req.body;
-  const logo = req.file ? req.file.path : null;
+  const { description, services, industry_solutions, logo } = req.body;
+  // const logo = req.file ? req.file.path : null;
 
   try {
     const newEntry = await SchemaName.create({
