@@ -28,7 +28,7 @@ router.get("/", getAllWhatwedo);
 
 router.get("/:id", getWhatwedotById);
 
-router.put("/:id", updateWhatwedo);
+router.put("/:id", upload.single("image"), updateWhatwedo);
 
 router.delete("/:id", deleteWhatwedot);
 
